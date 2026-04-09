@@ -1,0 +1,43 @@
+# VoxelCraft – Minecraft‑Style Voxel Game (Unity + C#)
+
+## Overview
+VoxelCraft is a minimalist Minecraft‑style voxel engine built in Unity using chunk‑based terrain, Perlin noise world generation, and a basic block interaction system.
+
+## Features
+- Chunk‑based infinite terrain
+- Perlin noise heightmaps and simple biomes (forest, desert, plains)
+- Block types: grass, dirt, stone, sand, water
+- Face‑culled mesh generation with texture atlas
+- First‑person controller (walk, jump, sprint)
+- Block placement and destruction via raycast
+- Basic saving/loading of chunks
+
+## Setup
+1. Install Unity (2021+ recommended).
+2. Create a new 3D project.
+3. Copy the `Assets` structure from this repo into your project.
+4. Assign:
+   - `chunkPrefab` with `Chunk` + `ChunkRenderer` + `MeshFilter` + `MeshRenderer`.
+   - `BlockMaterial` using `Textures/block_atlas.png`.
+   - `BiomeGenerator` ScriptableObject to `WorldManager`.
+   - `player` reference in `WorldManager`.
+5. Press Play.
+
+## Architecture
+- `WorldManager`: Manages chunk loading/unloading around the player.
+- `Chunk`: Holds block data and triggers mesh rebuilds.
+- `ChunkRenderer`: Builds mesh from visible faces only.
+- `BiomeGenerator` + `Noise`: Procedural terrain and biome selection.
+- `PlayerController`: Movement and camera.
+- `BlockInteractor`: Block placement/destruction.
+- `SaveSystem`: Binary serialization of chunk data.
+
+## Extending the Game
+- **Crafting:** Add an inventory system and crafting recipes.
+- **Mobs:** Implement simple AI agents with pathfinding and spawning rules.
+- **Inventory & Hotbar:** Track held items and block types.
+- **Structures:** Add trees, villages, caves using additional noise layers.
+- **Multiplayer:** Use Netcode or a custom server to sync chunks and player actions.
+
+## License
+MIT (or your preferred license).
