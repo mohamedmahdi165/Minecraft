@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>VoxelCraft – Minecraft‑Style Voxel Game</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #0b0c10;
+      color: #f5f5f5;
+      display: flex;
+      min-height: 100vh;
+      align-items: center;
+      justify-content: center;
+    }
+    .container {
+      max-width: 800px;
+      padding: 2rem;
+      background: #1f2833;
+      border-radius: 12px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+      color: #66fcf1;
+    }
+    h2 {
+      font-size: 1.2rem;
+      margin: 1.5rem 0 0.5rem;
+      color: #45a29e;
+    }
+    p {
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+    }
+    ul {
+      margin-left: 1.2rem;
+      margin-bottom: 1rem;
+    }
+    li {
+      margin-bottom: 0.3rem;
+    }
+    .button {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.7rem 1.4rem;
+      border-radius: 999px;
+      background: #66fcf1;
+      color: #0b0c10;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.4);
+    }
+    .note {
+      font-size: 0.85rem;
+      opacity: 0.8;
+      margin-top: 0.75rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>VoxelCraft</h1>
+    <p>A minimalist Minecraft‑style voxel engine with chunk‑based terrain, procedural biomes, and block interaction.</p>
+
+    <h2>Features</h2>
+    <ul>
+      <li>Chunk‑based infinite terrain</li>
+      <li>Perlin‑noise heightmaps and simple biomes</li>
+      <li>Block placement and destruction</li>
+      <li>Texture‑atlas based rendering</li>
+      <li>First‑person movement (walk, jump, sprint)</li>
+    </ul>
+
+    <h2>How to Play</h2>
+    <ul>
+      <li><strong>WASD</strong> – Move</li>
+      <li><strong>Space</strong> – Jump</li>
+      <li><strong>Shift</strong> – Sprint</li>
+      <li><strong>Left Click</strong> – Break block</li>
+      <li><strong>Right Click</strong> – Place block</li>
+    </ul>
+
+    <!-- If you export a WebGL build from Unity, link it here -->
+    <!-- Example: <a href="Build/index.html" class="button">Play in Browser</a> -->
+    <a href="#" class="button">Play (coming soon)</a>
+
+    <p class="note">
+      This page is a static front‑end. Hook it to your Unity WebGL build or download link when ready.
+    </p>
+  </div>
+</body>
+</html>
