@@ -8,7 +8,7 @@ public class Chunk : MonoBehaviour {
     public Vector2Int coord;
     public Block[,,] blocks;
 
-    ChunkRenderer rendererComponent;
+    private ChunkRenderer rendererComponent;
 
     void Awake() {
         rendererComponent = GetComponent<ChunkRenderer>();
@@ -21,17 +21,21 @@ public class Chunk : MonoBehaviour {
     }
 
     public Block GetBlock(int x, int y, int z) {
-        if (!InBounds(x, y, z)) return new Block(BlockType.Air);
+        if (!InBounds(x, y, z))
+            return new Block(BlockType.Air);
+
         return blocks[x, y, z];
     }
 
     public void SetBlock(int x, int y, int z, BlockType type) {
-        if (!InBounds(x, y, z)) return;
+        if (!InBounds(x, y, z))
+            return;
+
         blocks[x, y, z] = new Block(type);
         rendererComponent.Dirty = true;
     }
 
-    bool InBounds(int x, int y, int z) {
+    private bool InBounds(int x, int y, int z) {
         return x >= 0 && x < ChunkSize &&
                y >= 0 && y < ChunkHeight &&
                z >= 0 && z < ChunkSize;
@@ -40,6 +44,7 @@ public class Chunk : MonoBehaviour {
     public void Generate(BiomeGenerator biomeGen, int worldOffsetX, int worldOffsetZ) {
         for (int x = 0; x < ChunkSize; x++) {
             for (int z = 0; z < ChunkSize; z++) {
+
                 int wx = worldOffsetX + x;
                 int wz = worldOffsetZ + z;
 
@@ -47,18 +52,24 @@ public class Chunk : MonoBehaviour {
                 BlockType surface = biomeGen.GetSurfaceBlock(wx, wz);
 
                 for (int y = 0; y < ChunkHeight; y++) {
+
                     if (y > height) {
                         blocks[x, y, z] = new Block(BlockType.Air);
-                    } else if (y == height) {
+                    }
+                    else if (y == height) {
                         blocks[x, y, z] = new Block(surface);
-                    } else if (y > height - 3) {
+                    }
+                    else if (y > height - 3) {
                         blocks[x, y, z] = new Block(BlockType.Dirt);
-                    } else {
+                    }
+                    else {
                         blocks[x, y, z] = new Block(BlockType.Stone);
                     }
                 }
             }
         }
+
         rendererComponent.Dirty = true;
     }
 }
+
